@@ -1,0 +1,12 @@
+rename MaxwellEqn_one_slit.m
+open_with vi
+chmod 755 scope.sh
+chmod 755
+search w
+delete | grep .hex
+sudo rm
+delete
+open_with 
+
+search X
+search sh

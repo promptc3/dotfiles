@@ -1,0 +1,16 @@
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias today='date +"%A, %B %-d, %Y"'
+alias lg='ls -al | grep'
+alias mutt='mutt -F /home/heliumk/.mutt/.muttrc'
+alias rr='ranger -r ~/.config/ranger/'
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias cc='gcc -std=c11 -g -Wall -Werror -o'
+alias whoami='figlet -F border heliumK'
+alias wifi='nmcli dev wifi'
+alias con='nmcli connection up'
+alias bon='bluetooth on'
+alias boff='bluetooth off'

@@ -1,0 +1,32 @@
+URxvt*termName: xterm-256color
+URxvt*geometry: 600x400
+URxvt*loginShell: true
+URxvt*scrollstyle: xterm
+URxvt*scrollTtyKeypress: true
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*secondaryScreen: true
+URxvt*secondaryScroll: false
+URxvt*skipScroll: true
+URxvt*scrollBar: false
+URxvt*scrollBar_right: false
+URxvt*scrollBar_floating: false
+URxvt*fading: 30
+URxvt*utmpInhibit: false
+URxvt*urgentOnBell: false
+URxvt*visualBell: true
+URxvt*mapAlert: true
+URxvt*mouseWheelScrollPage: true
+URxvt*saveLines: 0000
+URxvt*buffered: true
+URxvt*hold: false
+URxvt*internalBorder:
+URxvt*print-pipe: cat > $HOME/$(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
+URxvt*perl-ext-common:default,matcher,fullscreen,resize-font
+URxvt*keysym.F11: perl:fullscreen:switch
+URxvt*perl-ext:
+URxvt*keysym.C-minus: resize-font:smaller
+URxvt*keysym.C-plus: resize-font:bigger
+URxvt*keysym.C-equal: resize-font:reset
+URxvt*keysym.C-question: resize-font:show
+URxvt*color12: rgb:5c/5c/ff

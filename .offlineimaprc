@@ -1,0 +1,72 @@
+[general]
+accounts = Gmail,Yahoo
+maxsyncaccounts = 2
+set status_backend = sqlite
+
+[Account Gmail]
+localrepository = gmail-local
+remoterepository = gmail-remote
+
+[Repository gmail-local]
+type = GmailMaildir
+remotehost = imap.gmail.com
+remoteuser =xxxxxx@gmail.com 
+localfolders = ~/Mail
+starttls = yes
+nametrans = lambda f: f.replace('[Gmail]/', '') if f.startswith('[Gmail]/') else f
+auth_mechanisms = XOAUTH2
+oauth2_client_id = xxxxxxxxx
+oauth2_client_secret = xxxxxxx
+oauth2_request_url = https://accounts.google.com/o/oauth2/token
+oauth2_refresh_token = xxxxxxx
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Repository gmail-remote]
+type = Gmail
+remoteuser = xxxxxxx@gmail.com
+remotepass = xxxxx
+localfolders = ~/Mail
+restoreatime = no
+ssl = yes
+auth_mechanisms = XOAUTH2
+oauth2_client_id = xxxxxxxx
+oauth2_client_secret = xxxxxxx
+oauth2_request_url = https://accounts.google.com/o/oauth2/token
+oauth2_refresh_token = xxxxxxx
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+# Do not sync this folder
+folderfilter = lambda folder: folder not in ['2007-2011-inbox']
+## Remove GMAIL prefix on Google-specific IMAP folders that are pulled down.
+nametrans = lambda f: '[Gmail]/' + f if f in ['Drafts', 'Starred', 'Important', 'Spam', 'Trash', 'All Mail', 'Sent Mail'] else f
+[Repository ExampleCompanyRemote]
+## remove Gmail prefix on IMAP folders
+nametrans = lambda f: f.replace('[Gmail]/', '') if f.startswith('[Gmail]/') else f
+
+[Account Yahoo]
+localrepository = yahoo-local
+remoterepository = yahoo-remote
+
+[Repository yahoo-local]
+type = Maildir
+localfolders = ~/Mail/yahoo/
+remotehost = imap.mail.yahoo.com
+remoteuser = xxxxx@yahoo.co.in
+starttls = yes
+
+[Repository yahoo-remote]
+type = IMAP
+remotehost = imap.mail.yahoo.com
+remoteuser = xxxxx@yahoo.co.in
+remotepass = xxxxx
+remoteport = 993
+ssl = yes
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+folderfilter = lambda foldername: foldername in ['Inbox', 'Drafts', 'Sent', 'Spam', 'Archive']
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/muttrc.mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
