@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <pre><code>
      _          _ _                 _   __
     | |        | (_)               | | / /
@@ -95,4 +94,3 @@ For me I don't ever want to miss my orgasmic workflow.
 ## Final Words
 If anyone needs any help in setting up these things, email me. I'm never busy (;
 
->>>>>>> 9f943384b9939fb569c1b6f1cf2c056b5da30314
