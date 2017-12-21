@@ -13,6 +13,7 @@ They say dotfiles represent you, who you are, what you prefer yada yada ..
 For me I don't ever want to miss my orgasmic workflow.
 
 ## Tools
+
 ###Vim
 ####Plugins
 1. airline
@@ -25,13 +26,13 @@ For me I don't ever want to miss my orgasmic workflow.
 8. commentary
 9. surround
 
-### tmux
+### Tmux
 #### Plugins
 1. pain
 2. ressurect
 3. battery
 
-### i3
+### i3wm
 1. polybar
 2. rofi
 3. feh
@@ -39,24 +40,24 @@ For me I don't ever want to miss my orgasmic workflow.
 5. lxappearance
 6. imagemagick
 
-### ranger
+### Ranger
 
-### mutt
+### Mutt
 #### with offlineimap
 
-### fish
+### Fish
 #### with oh-my-fish
 
 ### Tilix
 ### w3m and w3m-img
 
-### fonts
+### Fonts
 1. mononoki
 2. ubuntu mono
 3. FontAwesome
 4. Powerline Fonts
 
-###Themes
+### Themes
 1. Highway for tilix --quake
 2. Solarized-Dark for Tilix
 3. Minimal for vim-airline
