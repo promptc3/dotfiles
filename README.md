@@ -14,8 +14,8 @@ For me I don't ever want to miss my orgasmic workflow.
 
 ## Tools
 
-###Vim
-####Plugins
+### Vim
+#### Plugins
 1. airline
 2. fugitive
 3. syntastic
