@@ -89,7 +89,7 @@ For me I don't ever want to miss my orgasmic workflow.
 
 ### Tilix
 1. Horizontal and vertical split, tabs, windows, profiles, synchronous typing
-2. Drop down like quake(not Guake, Guake is ugly, terminator is ugly too)
+2. Drop down like quake(not Guake, Guake is ugly, terminator is ugly too, and I hate markdown)
 3. Super easy GUI based configuration
 
 ## Final Words
