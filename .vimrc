@@ -11,7 +11,11 @@ set backspace=2
 set tabstop=2
 set shiftwidth=2
 set showcmd
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*/.tox/*,*.egg-info/*,*/node_modules/*
 set wildmenu
+set rtp+=~/.fzf/
+set tildeop
+set cindent
 execute pathogen#infect()
 
 " nerdtree
@@ -30,7 +34,7 @@ set noshowmode
 set ic
 
 " Higlhight search
-set hls
+set nohls
 
 " Wrap text instead of being on one line
 set lbr
@@ -55,20 +59,29 @@ vmap  <expr>  D        DVB_Duplicate()
 " Remove any introduced trailing whitespace after moving...
 let g:DVB_TrimWS = 1
 
+" Fuzzy File Finder(Not CtrlP)
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --glob !.PlayOnLinux --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
+map <C-p> :Rg<CR>
+
+" custom mappings
+set completefunc=synatxcomplete#Complete
+noremap <C-h> :set nohls<CR>
+inoremap <Tab> <Esc>
+vnoremap <Tab> <Esc>gV
+nnoremap <Tab> <Esc>
+noremap <C-b> :bnext<CR>
+au VimEnter * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Alt_L'
+au VimLeave * silent !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+" helptags for plugins
 helptags ~/.vim/bundle/vim-surround/doc
 helptags ~/.vim/bundle/nerdtree/doc
 helptags ~/.vim/bundle/syntastic/doc
-" custom mappings
-noremap <C-h> :set nohls<CR>
-inoremap <Tab> <Esc>
-vnoremap <Tab> <Esc>
-let mapleader="|"
-nnoremap <leader>d :NERDTree /home/heliumk/Documents<CR>
-vnoremap <leader>d :NERDTree /home/heliumk/Documents<CR>
-nnoremap <leader>p :NERDTree /home/heliumk/Documents/sim_lab/pointers<CR>
-vnoremap <leader>p :NERDTree /home/heliumk/Documents/sim_lab/pointers<CR>
-inoremap <M-l> <Left>
-inoremap <M-h> <Right>
-inoremap <M-j> <Down>
-inoremap <M-k> <Up>
+helptags ~/.vim/bundle/tmuxline.vim/doc
+helptags ~/.vim/bundle/vim-ruby-minitest/doc

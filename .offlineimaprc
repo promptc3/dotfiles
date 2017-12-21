@@ -10,29 +10,29 @@ remoterepository = gmail-remote
 [Repository gmail-local]
 type = GmailMaildir
 remotehost = imap.gmail.com
-remoteuser =xxxxxx@gmail.com 
+remoteuser =promptc3.0@gmail.com 
 localfolders = ~/Mail
 starttls = yes
 nametrans = lambda f: f.replace('[Gmail]/', '') if f.startswith('[Gmail]/') else f
 auth_mechanisms = XOAUTH2
-oauth2_client_id = xxxxxxxxx
-oauth2_client_secret = xxxxxxx
+oauth2_client_id = 45546004313-fts0farm3hb7rnvrhh602vi7pkciuo9f.apps.googleusercontent.com
+oauth2_client_secret = Eq9NOPBdvYNvS6SGFnyroRzq
 oauth2_request_url = https://accounts.google.com/o/oauth2/token
-oauth2_refresh_token = xxxxxxx
+oauth2_refresh_token = 1/MkayZ9ij9P7zM8uVTF0PUCwqVOFaIqjoR8vRdd2Dc_cubvBvSk2KCB_2cEuzMRt- 
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Repository gmail-remote]
 type = Gmail
-remoteuser = xxxxxxx@gmail.com
-remotepass = xxxxx
+remoteuser = promptc3.0@gmail.com
+remotepass = pcis6634
 localfolders = ~/Mail
 restoreatime = no
 ssl = yes
 auth_mechanisms = XOAUTH2
-oauth2_client_id = xxxxxxxx
-oauth2_client_secret = xxxxxxx
+oauth2_client_id = 45546004313-fts0farm3hb7rnvrhh602vi7pkciuo9f.apps.googleusercontent.com
+oauth2_client_secret = Eq9NOPBdvYNvS6SGFnyroRzq
 oauth2_request_url = https://accounts.google.com/o/oauth2/token
-oauth2_refresh_token = xxxxxxx
+oauth2_refresh_token = 1/MkayZ9ij9P7zM8uVTF0PUCwqVOFaIqjoR8vRdd2Dc_cubvBvSk2KCB_2cEuzMRt- 
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 # Do not sync this folder
 folderfilter = lambda folder: folder not in ['2007-2011-inbox']
@@ -50,14 +50,14 @@ remoterepository = yahoo-remote
 type = Maildir
 localfolders = ~/Mail/yahoo/
 remotehost = imap.mail.yahoo.com
-remoteuser = xxxxx@yahoo.co.in
+remoteuser = harsh_kumar13@yahoo.co.in
 starttls = yes
 
 [Repository yahoo-remote]
 type = IMAP
 remotehost = imap.mail.yahoo.com
-remoteuser = xxxxx@yahoo.co.in
-remotepass = xxxxx
+remoteuser = harsh_kumar13@yahoo.co.in
+remotepass = Saumyajeet
 remoteport = 993
 ssl = yes
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
