@@ -7,11 +7,8 @@ set rnu
 set number
 set ruler
 set nocompatible
-set backspace=2
-set tabstop=2
-set shiftwidth=2
 set showcmd
-set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*/.tox/*,*.egg-info/*,*/node_modules/*
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pyc,*/node_modules/*
 set wildmenu
 set rtp+=~/.fzf/
 set autoread
@@ -82,7 +79,6 @@ command! -bang -nargs=* Rg
 map <C-p> :Rg<CR>
 
 " custom mappings
-set completefunc=syntaxcomplete#Complete
 noremap <C-h> :set nohls<CR>
 inoremap <Tab> <Esc>
 vnoremap <Tab> <Esc>gV
@@ -95,13 +91,19 @@ nnoremap <BS> :bp<CR>
 
 " Filetype mappings
 autocmd FileType c set ts=4 sw=4 omnifunc=ccomplete#Complete
-autocmd FileType ruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby set ts=2 sw=2 omnifunc=rubycomplete#Complete completefunc=syntaxcomplete#Complete
 
 "Goyo and Limelight
 "color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 240
 let g:limelight_default_coefficient = 0.7
 let g:limelight_paragraph_span = 1
+
+"Notes
+let g:notes_directories = ['~/Documents/notes/']
+let g:notes_suffix = '.md'
+let g:notes_title_sync = 'rename_file'
+let g:notes_tab_indents = 0
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
@@ -112,3 +114,4 @@ helptags ~/.vim/bundle/syntastic/doc
 helptags ~/.vim/bundle/vim-ruby-minitest/doc
 helptags ~/.vim/bundle/vim-commentary/doc
 helptags ~/.vim/bundle/vim-airline/doc
+helptags ~/.vim/bundle/vim-notes/doc
