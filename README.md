@@ -70,6 +70,7 @@ For me I don't ever want to miss my orgasmic workflow.
 3. CtrlP is easy to setup but slow, fzf is fast but difficult to start with
 4. I rarely use Nerdtree, any fuzzyfilefinder is recommended
 5. Anything by Tim Pope is useful (;
+6. Don't use powerline-status, its heavy
 
 ### i3
 1. i3 is a tiling window manager
