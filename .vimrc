@@ -1,9 +1,9 @@
 syntax on
 filetype plugin indent on
 set term=gnome-256color
-"set background=dark
+set background=dark
 set shell=/usr/bin/fish
-set rnu
+set relativenumber
 set number
 set ruler
 set nocompatible
@@ -16,8 +16,21 @@ set autowrite
 set incsearch ignorecase smartcase hlsearch
 set pastetoggle=<F10>
 set fillchars=vert:┃
+set noexpandtab
+set omnifunc=syntaxcomplete#Complete
 hi VertSplit ctermfg=DarkGray cterm=NONE
 hi Visual ctermfg=Green ctermbg=Black
+
+" fix meta-keys which generate <Esc>a .. <Esc>z
+let c='a'
+while c <= 'z'
+  exec "set <M-".c.">=\e".c
+  exec "imap \e".c." <M-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+inoremap <M-n> <C-n>
+inoremap <M-l> <C-x><C-l>
+inoremap <M-o> <C-x><C-o>
 
 " netrw settings
 map <C-n> :Vexplore<CR>
@@ -28,36 +41,19 @@ let g:netrw_winsize = 25
 let g:netrw_altv = 1
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+:'
 
-" fix meta-keys which generate <Esc>a .. <Esc>z
-let c='a'
-while c <= 'z'
-	exec "set <A-".toupper(c).">=\e".c
-	exec "imap \e".c." <A-".toupper(c).">"
-	let c = nr2char(1+char2nr(c))
-endw
-
 execute pathogen#infect()
 
 " airline
 set laststatus=1
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:bufferline_echo = 0
-let g:airline_theme='luna'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='zenburn'
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tmuxline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 
 " Wrap text instead of being on one line
 set lbr
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers=['mri']
 
 vmap <unique> <up>    <Plug>SchleppUp
 vmap <unique> <down>  <Plug>SchleppDown
@@ -77,7 +73,6 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 map <C-p> :Rg<CR>
-
 " custom mappings
 noremap <C-h> :set nohls<CR>
 inoremap <Tab> <Esc>
@@ -88,10 +83,12 @@ nnoremap <C-q> :q!<CR>
 inoremap <C-q> <Esc>:wq<CR>
 nnoremap <Space> :bn<CR>
 nnoremap <BS> :bp<CR>
+inoremap <M-n> <C-x><C-n>
+inoremap <A-l> <C-x><C-l>
 
 " Filetype mappings
-autocmd FileType c set ts=4 sw=4 omnifunc=ccomplete#Complete
-autocmd FileType ruby set ts=2 sw=2 omnifunc=rubycomplete#Complete completefunc=syntaxcomplete#Complete
+autocmd FileType c set ts=4 sw=4
+autocmd FileType ruby set ts=2 sw=2 completefunc=syntaxcomplete#Complete
 
 "Goyo and Limelight
 "color name (:help cterm-colors) or ANSI code
@@ -105,13 +102,19 @@ let g:notes_suffix = '.md'
 let g:notes_title_sync = 'rename_file'
 let g:notes_tab_indents = 0
 
+" ALE
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_on_insert_leave = 1 
+let g:ale_completion_enabled = 1
+let g:ale_completion_max_suggestions = 5
+let g:ale_set_highlights = 0
+let g:ale_set_signs = 1
+
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+packloadall
+silent! helptags ALL
 
 " helptags for plugins
 helptags ~/.vim/bundle/vim-surround/doc
-helptags ~/.vim/bundle/syntastic/doc
-helptags ~/.vim/bundle/vim-ruby-minitest/doc
-helptags ~/.vim/bundle/vim-commentary/doc
-helptags ~/.vim/bundle/vim-airline/doc
-helptags ~/.vim/bundle/vim-notes/doc
