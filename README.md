@@ -10,7 +10,7 @@
 ## DOTFILES
 
 <pre><code>
-terminal             -> tilix
+terminal             -> tilix | urxvt
 shell                -> bash
 compositor           -> compton
 editor               -> vim
