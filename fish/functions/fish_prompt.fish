@@ -1,1 +1,0 @@
-/home/heliumk/.local/share/omf/themes/pure/fish_prompt.fish

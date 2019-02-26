@@ -1,8 +1,0 @@
-package autoproxy
-package fish_logo
-package notify
-package proxy
-package sudope
-theme default
-theme pure
-theme trout
