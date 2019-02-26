@@ -18,7 +18,7 @@ terminal-multiplexer -> tilix | tmux (plugins: pain ressurect battery)
 window manager       -> i3wm | awesomewm
 bar                  -> polybar
 browser              -> firefox
-font                 -> ubuntu mono Nerd fonts | monospace
+font                 -> ubuntu mono Nerd font | Hurmit Nerd font 
 rss viewer           -> akregator
 program launcher     -> rofi
 pdfviewer            -> mupdf
