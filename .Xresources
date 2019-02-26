@@ -63,5 +63,5 @@ URxvt.foreground: #ffffff
 
 !font settings
 URxvt*letterSpace: 0
-URxvt*font: xft:Hurmit Nerd Font:style=Regular:size=11
-URxvt*boldFont: xft:Hurmit Nerd Font:style=Regular:size=11
+URxvt*font: xft:Hurmit Nerd Font:style=Regular:pixelsize=13
+URxvt*boldFont: xft:Hurmit Nerd Font:style=Regular:pixelsize=13
