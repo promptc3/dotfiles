@@ -1,7 +1,7 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
- #If not running interactively, don't do anything
+#If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
@@ -55,7 +55,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[$(tput bold)\]\[$(tput setaf 2)\]ﲤ\[$(tput setaf 9)\] \W \[$(tput setaf 2)\]ﲤ\[$(tput sgr0)\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -113,12 +113,15 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
 
-
-# added by Anaconda2 4.3.1 installer
-#export PATH="/home/heliumk/anaconda2/bin:$PATH"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# for jump : a directory browsiing tool
+eval "$(jump shell)"
