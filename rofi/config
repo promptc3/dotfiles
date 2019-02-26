@@ -1,0 +1,3 @@
+rofi.monitor: primary
+rofi.modi: window,run,drun
+rofi.theme: material.rasi
